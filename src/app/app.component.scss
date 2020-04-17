@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav {
+    background-color: #1976D2;
+    color: white;
+    height: 5em;
+}
+.big-img-wrapper {
+    margin: auto;
+    max-width: 2000px;
+    background-image: url("../assets/images/algorithm.jpg");
+    background-color: #212529;
+    height: 700px;
+    background-position: center;
+    background-position-y: 40%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.container {
+    max-width: 1200px;
+    min-width: 500px;
+    margin: auto;
+}
+.datetime-wrapper {
+    padding: 10px 20px 10px 0px;
+}
+
+.lframe {
+}

@@ -1,0 +1,12 @@
+.datetime-wrapper {
+    font-size: 23px;
+    p {
+        text-align: right;
+    }
+    .time {
+        font-weight: bold;
+    }
+    .date, .zone {
+        color: #9C9C9C;
+    }
+}

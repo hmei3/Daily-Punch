@@ -1,0 +1,32 @@
+thead {
+    background-color: #1976D2;
+    color: white;
+    border-radius: 5px 5px 0 0;
+}
+#item-list {
+    background-color: hsla(0,0%,94.5%,.2);
+    border: .5px solid #dbdbdb;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.list-header {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-items: stretch;
+    padding: 10px 0px 10px 5px;
+}
+.header-element {
+    text-align: left;
+    cursor: pointer;
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+}
+.no-radius {
+    border-radius: 0em;
+}

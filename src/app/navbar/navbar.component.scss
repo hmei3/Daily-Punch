@@ -1,0 +1,22 @@
+div {
+    .container {
+        max-width: 1200px;
+        margin: auto;
+    }
+    h1 {
+        padding: 15px 0px 5px 5px;
+        margin: 0;
+        display: inline-block;
+        font-size: 23;
+    }
+    .join {
+        padding: 30px 5px 5px 0px;
+        float: right;
+    }
+    a{
+        font: 20;
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+    }
+}
