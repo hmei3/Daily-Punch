@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { StatusList } from '../dto/StatusList.modal';
+import { UserStatus } from '../dto/UserStatus.modal';
 
 @Component({
   selector: 'app-status',
@@ -8,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatusComponent implements OnInit {
 
+  statusList: StatusList;
+  private threshold = 3;
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -15,7 +19,12 @@ export class StatusComponent implements OnInit {
   }
 
   onGetStatusRequest() {
-    this.http.get("https://elapibg99h.execute-api.us-east-1.amazonaws.com/dev2?base=2020-04-15").subscribe(posts => {console.log(posts);});
+    this.http.get<StatusList>('https://dd19pcef5e.execute-api.us-east-1.amazonaws.com/Test?base=2020-04-13')
+      .subscribe(response => {
+        this.statusList = (response as StatusList);
+        console.log(this.statusList);
+    });
   }
 
+  openQuestionModal() {}
 }

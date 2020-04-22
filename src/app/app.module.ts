@@ -6,11 +6,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { StatusComponent } from './status/status.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { RankingComponent } from './ranking/ranking.component';
-import { StatusItemComponent } from './status-item/status-item.component';
 import { DatetimeComponent } from './datetime/datetime.component';
 import { JoinModalComponent } from './join-modal/join-modal.component';
 import { QuestionListModalComponent } from './question-list-modal/question-list-modal.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ComponentPlaceholderDirective } from './directives/placeholder/component-placeholder.directive';
 
 @NgModule({
   declarations: [
@@ -19,10 +19,10 @@ import { HttpClientModule } from '@angular/common/http';
     StatusComponent,
     CalendarComponent,
     RankingComponent,
-    StatusItemComponent,
     DatetimeComponent,
     JoinModalComponent,
-    QuestionListModalComponent
+    QuestionListModalComponent,
+    ComponentPlaceholderDirective
   ],
   imports: [
     BrowserModule,

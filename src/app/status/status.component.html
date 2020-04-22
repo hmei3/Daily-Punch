@@ -8,23 +8,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>hmei</td>
-        <td>3</td>
-        <td><i class="glyphicon glyphicon-ok text-success"></i></td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
+      <tr *ngIf="statusList === undefined else showList"><p>Loading</p></tr>
+      <ng-template #showList>
+        <tr *ngFor="let statusItem of statusList.currentStatus; let i = index" [attr.data-index]="i" class="hover-scale" (click)="openQuestionModal()">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{statusItem.Alias}}</td>
+          <td>{{statusItem.AcceptedNum}}</td>
+          <td><i [ngClass] = "(statusItem.Completed)? 'glyphicon glyphicon-ok text-success' : 'glyphicon glyphicon-remove text-danger'"></i></td>
+        </tr>
+      </ng-template>
     </tbody>
   </table>

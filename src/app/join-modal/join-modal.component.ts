@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-join-modal',
@@ -6,12 +6,14 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./join-modal.component.scss']
 })
 export class JoinModalComponent implements OnInit {
-
-  @Input() isVisiable
-
+  @Output() closeModal = new EventEmitter<void>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onClose() {
+    this.closeModal.emit();
   }
 
 }

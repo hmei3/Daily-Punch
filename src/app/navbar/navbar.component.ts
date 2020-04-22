@@ -1,5 +1,7 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { EventEmitter } from 'protractor';
+import { ComponentPlaceholderDirective } from './../directives/placeholder/component-placeholder.directive';
+import { JoinModalComponent } from './../join-modal/join-modal.component';
+import { Component, OnInit, ViewChild, ComponentFactoryResolver } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -8,15 +10,24 @@ import { EventEmitter } from 'protractor';
 })
 export class NavbarComponent implements OnInit {
 
-  isVisible;
-  constructor() {
-    this.isVisible = false;
+  @ViewChild(ComponentPlaceholderDirective, {static: false}) joinModalHost: ComponentPlaceholderDirective;
+
+  private closeSub: Subscription;
+
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) {
   }
 
   ngOnInit(): void {
   }
 
-  toggleJoinModal() {
-    this.isVisible = true;
+  openJoinModal() {
+    const joinModalComponentFactory = this.componentFactoryResolver.resolveComponentFactory(JoinModalComponent);
+    const joinModalHostRef = this.joinModalHost.viewContainerRef;
+    joinModalHostRef.clear();
+    const joinModalComponentRef = joinModalHostRef.createComponent(joinModalComponentFactory);
+    this.closeSub = joinModalComponentRef.instance.closeModal.subscribe(() => {
+      this.closeSub.unsubscribe();
+      joinModalHostRef.clear();
+    });
   }
 }
