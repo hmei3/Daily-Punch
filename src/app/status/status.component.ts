@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { StatusList } from '../dto/StatusList.modal';
-import { UserStatus } from '../dto/UserStatus.modal';
+import {ThemePalette} from '@angular/material/core';
+import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-status',
@@ -11,7 +12,10 @@ import { UserStatus } from '../dto/UserStatus.modal';
 export class StatusComponent implements OnInit {
 
   statusList: StatusList;
-  private threshold = 3;
+  completedUserNum: number;
+  color: ThemePalette = 'primary';
+  mode: ProgressSpinnerMode = 'indeterminate';
+  value = 50;
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -19,9 +23,10 @@ export class StatusComponent implements OnInit {
   }
 
   onGetStatusRequest() {
-    this.http.get<StatusList>('https://dd19pcef5e.execute-api.us-east-1.amazonaws.com/Test?base=2020-04-13')
+    this.http.get<StatusList>('https://dd19pcef5e.execute-api.us-east-1.amazonaws.com/Test?base=2019-02-13')
       .subscribe(response => {
         this.statusList = (response as StatusList);
+        this.completedUserNum = this.statusList.totalUserNum - this.statusList.uncompletedUserNum;
         console.log(this.statusList);
     });
   }

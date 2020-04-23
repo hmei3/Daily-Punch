@@ -1,6 +1,6 @@
 import { ComponentPlaceholderDirective } from './../directives/placeholder/component-placeholder.directive';
 import { JoinModalComponent } from './../join-modal/join-modal.component';
-import { Component, OnInit, ViewChild, ComponentFactoryResolver } from '@angular/core';
+import { Component, OnInit, ViewChild, ComponentFactoryResolver, NgModule } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 @Component({

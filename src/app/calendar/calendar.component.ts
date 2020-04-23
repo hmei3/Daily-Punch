@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 declare var $: any;
 
 @Component({
@@ -8,19 +9,12 @@ declare var $: any;
 })
 export class CalendarComponent implements OnInit {
 
-  constructor() { }
+  bsInlineValue = new Date();
+  today = new Date();
+  isDisabled = false;
 
+  constructor() {
+  }
   ngOnInit(): void {
-    // $('#sandbox-container div').datepicker({
-    //   forceParse: false,
-    //   daysOfWeekHighlighted: "0,6",
-    //   todayHighlight: true
-    // });
-    $('#sandbox-container .input-group.date').datepicker({
-      // setDate: new Date(),
-      forceParse: false,
-      daysOfWeekHighlighted: "0,6",
-      todayHighlight: true
-    });
   }
 }

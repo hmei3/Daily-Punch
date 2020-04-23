@@ -40,3 +40,31 @@ ul {
     cursor: pointer;
     background-color: lightblue;
 }
+.complete-th{
+    position: relative;
+}
+.completionStatus {
+    position: absolute;
+    right: 20px;
+}
+.loading {
+    position: relative;
+    width: 100%;
+    min-height: 150px;
+}
+.tp-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+ }
+ .tp-margin {
+    margin: 0 10px;
+ }
+ .center {
+     float: none;
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     transform: translateX(-50%) translateY(-50%);
+ }
